@@ -18,6 +18,7 @@ transform = transforms.Compose([
 # Load Pokemon dataset from PokemonData folder
 full_dataset = torchvision.datasets.ImageFolder(root='./PokemonData', transform=transform)
 
+
 # Split dataset: 80% train, 20% test
 train_size = int(0.8 * len(full_dataset))
 test_size = len(full_dataset) - train_size
@@ -50,4 +51,4 @@ images, labels = next(dataiter)
 
 # Show images
 imshow(torchvision.utils.make_grid(images[:8]))
-print('Labels:', [classes[labels[j]] for j in range(8)])
+print('Labels:', [classes[labels[j].item()] for j in range(8)])
